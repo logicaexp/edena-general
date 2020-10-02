@@ -1,0 +1,728 @@
+html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: tahoma, arial, sans-serif;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+
+        #infoCargando {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            font-size: 15px;
+            align-items: center;
+            color: #82C9FA;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+
+        .overlayInicio {
+            z-index: 999;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+
+
+
+
+
+
+    .pFadeOut {
+        background: black;
+        z-index: 999;
+        opacity: 1;
+        transition: opacity 1s ease-out;
+        -ms-transition: opacity 1s ease-out;
+        -moz-transition: opacity 1s ease-out;
+        -webkit-transition: opacity 1s ease-out;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .PreFadeIn {
+        opacity: 0;
+    }
+
+    .pFadeIn {
+        background: black;
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 1s ease-in;
+        -ms-transition: opacity 1s ease-in;
+        -moz-transition: opacity 1s ease-in;
+        -webkit-transition: opacity 1s ease-in;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #logoLogicaCargando {
+            fill: #cee9fd;
+            stroke: #82C9FA;
+            stroke-width: 4;
+            stroke-location: inside;
+            width: 60%;
+            stroke-dasharray: 500;
+            animation: dash 2s linear;
+            animation-iteration-count: infinite;
+            padding: 7px;
+            max-width: 160px;
+        }
+        
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 1000;
+          }
+        }
+
+        .loadingScreenMostrar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            text-align: center;
+            background-color: white;
+    		z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            -ms-transition: opacity 0.5s ease-out;
+            -moz-transition: opacity 0.5s ease-out;
+            -webkit-transition: opacity 0.5s ease-out;
+        }
+        
+        .loadingScreenOcultar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            text-align: center;
+            background-color: white;
+    		z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+            -ms-transition: opacity 0.5s ease-in;
+            -moz-transition: opacity 0.5s ease-in;
+            -webkit-transition: opacity 0.5s ease-in;
+        }
+
+
+
+
+        #fps {
+            position: absolute;
+            text-align: center;
+            font-size: 14px;
+            color: grey;
+            bottom: 7px;
+            right: 7px;
+            width: 60px;
+            height: 20px;
+            opacity: 0.2;
+        }
+
+
+
+
+   
+    p a {
+        color: rgb(4, 64, 73);
+    }
+        
+    
+    
+    
+    
+    
+    #logoTopIzquierda {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+    }
+    
+    .logoEdenaImagen {
+        width: 47%;
+        max-width: 400px;
+    }
+    
+    
+
+    
+    
+    
+    .oculto {
+        display: none;
+    }
+    
+    .noactivo {
+        display: none;
+    }
+    
+    .activo {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    .dropdownOpacity1 {
+        opacity: 0.3;
+        transition: opacity 1s ease-out;
+        -ms-transition: opacity 1s ease-out;
+        -moz-transition: opacity 1s ease-out;
+        -webkit-transition: opacity 1s ease-out;
+    }
+    
+    .dropdownOpacityOculto {
+        opacity: 0.1;
+        transition: opacity 1s ease-out;
+        -ms-transition: opacity 1s ease-out;
+        -moz-transition: opacity 1s ease-out;
+        -webkit-transition: opacity 1s ease-out;
+    }
+
+    .dropdownOpacity0 {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+        -ms-transition: opacity 1s ease-in;
+        -moz-transition: opacity 1s ease-in;
+        -webkit-transition: opacity 1s ease-in;
+    }
+    
+    
+    
+    .dropdownRotado {
+       -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+         transform: rotate(45deg);
+    }
+    
+    .dropdownNormal {
+       -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+         transform: rotate(0deg);
+    }
+      
+    .dropdown {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .dropdownDentro {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .dropdownUno {
+        box-sizing: border-box;
+        display: flex;
+        border-radius: 50%;
+        margin-bottom: 14px;
+        align-items: center;
+        touch-action: manipulation;
+        align-self: flex-end;
+        color: rgb(4, 64, 73);
+        text-align: right;
+        text-shadow: -1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+    }
+    
+    .dropdownImagen {
+        border-radius: 50%;
+        height: 50px;
+        object-fit: cover;
+        margin-left: 10px;
+    }
+
+    .dropdownaocultar {
+        display: none;
+    }
+
+  
+  
+  
+  
+  
+  
+  
+   .botonesGrandes {
+        position: absolute;
+        /* max-width: 1200px; */
+        bottom: 90px;
+        left: 50%;
+        min-width: 140px;
+        max-width: 140px;
+        display: -webkit-flex;
+        display: flex;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .deLosGrandes {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        margin: 4.5%;
+        touch-action: manipulation;
+    }
+
+    .deLosGrandes:hover {
+    	cursor: pointer
+    } 
+    
+  
+  
+  
+  
+  
+   .botonesGrandesCaminar {
+        position: absolute;
+        max-width: 70px;
+        bottom: 30px;
+        left: 50%;
+        /* min-width: 190px; */
+        /* min-width: 500px; */
+        display: -webkit-flex;
+        display: flex;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+  
+      .instruccionesCaminar {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        align-items: center;
+        touch-action: manipulation;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        color: rgb(4, 64, 73);
+        text-align: center;
+        text-shadow: -1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+		font-size: 1.35em;
+    }
+  
+  
+  
+    .highlightCaminar {
+    animation-name: highlightCaminarAnim; 
+    animation-duration: 2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition-property: filter;
+    transition-duration: 1s;
+    }
+    
+    @keyframes highlightCaminarAnim {
+        from {filter: drop-shadow(0 0 5px rgb(4, 64, 73));}
+        50% {filter: drop-shadow(0 0 0px rgb(4, 64, 73));}
+        to {filter: drop-shadow(0 0 5px rgb(4, 64, 73));}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    .botonesGrandesDos {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        min-width: 140px;
+        max-width: 140px;
+        display: -webkit-flex;
+        display: flex;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;    
+    }
+    
+    .botonesGrandesColumna {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: end;
+        align-items: center;
+        flex-direction: column;
+        font-size: 13px;
+        margin: 7px;
+        color: rgb(4, 64, 73);
+        text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    }
+    
+    .botonGrandeImagenesDos {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin: 5px;
+    }
+    
+    
+    
+    .botonesChicosBottom {
+        position: absolute;
+        bottom: 33px;
+        left: 50%;
+        /* min-width: 90px; */
+        /* max-width: 100px; */
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        align-items: center;
+    }
+    
+    .botonChicoImagenesDos {
+        box-sizing: border-box;
+        border-radius: 50%;
+        margin: 10px;
+        touch-action: manipulation;
+        /* border-radius: 50%; */
+        width: 50px;
+        /* height: 100%; */
+        object-fit: cover;
+    }
+
+    
+    
+    
+    .botonesMedianosBottom {
+        position: absolute;
+        bottom: 90px;
+        left: 50%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        align-items: center;
+    }
+
+    .botonMedianoImagenes {
+        box-sizing: border-box;
+        border-radius: 50%;
+        margin: 12px;
+        touch-action: manipulation;
+        /* border-radius: 50%; */
+        width: 50px;
+        /* height: 100%; */
+        object-fit: cover;
+    }
+
+    
+    
+    
+    .textoDeSeleccionado{
+        position: absolute;
+        bottom: 163px;
+        left: 50%;
+        align-items: center;
+        touch-action: manipulation;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        color: rgb(4, 64, 73);
+        text-align: center;
+        text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        font-size: 1.2em;
+    }
+    
+    
+    .botonRegresar360s{
+        box-sizing: border-box;
+        border-radius: 50%;
+        touch-action: manipulation;
+        width: 70px;
+        object-fit: cover;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        align-items: center;
+    }
+    
+    
+    .botonEntrarDisabled {
+        opacity: 0.35;
+        animation-name: placeholder;
+    }
+    
+    
+    
+    
+    
+    
+    
+    .los5botones {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        min-width: 320px;
+        max-width: 320px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        align-items: center;
+    }
+    
+    .los5botonesDentro {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: nowrap;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    
+    
+    .los5botonesUno {
+        box-sizing: border-box;
+        border-radius: 50%;
+        margin: 2.5%;
+        touch-action: manipulation;
+    }
+
+    .los5botonesUnoFadeIn01 {
+        opacity: 1;
+        transition: opacity 3s ease-out;
+        -ms-transition: opacity 3s ease-out;
+        -moz-transition: opacity 3s ease-out;
+        -webkit-transition: opacity 3s ease-out;
+    }
+
+    .los5botonesUnoFadeIn02 {
+        opacity: 0;
+        transition: opacity 3s ease-in;
+        -ms-transition: opacity 3s ease-in;
+        -moz-transition: opacity 3s ease-in;
+        -webkit-transition: opacity 3s ease-in;
+    }
+    
+
+    .los5botonesUno:hover {
+    	cursor: pointer
+    }
+    
+    .los5botonesImagen {
+    	border-radius: 50%;
+    	width: 100%;
+    	height: 100%;
+    	object-fit: cover;
+    }
+
+    .los5botonesSeleccionado {
+        filter: drop-shadow(0 0 0.2rem rgb(134 171 177));
+    }
+
+    
+    .los5botonesAtencion {
+    animation-name: los5botonesAnimacion; 
+    animation-duration: 2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition-property: opacity;
+    transition-duration: 1s;
+    }
+    
+    @keyframes los5botonesAnimacion {
+        from {opacity: 1;}
+        50% {opacity: 0.3;}
+        to {opacity: 1;}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+    
+
+    .footerMain {
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        font-size: 0.55em;
+        color: rgb(4, 64, 73);
+    }
+    
+    .footerAplicacion {
+        padding: 0;
+        margin: 1px;
+        text-align: center
+    }
+    
+    
+    .footerLogica {
+        display: inline-block;
+        font-size: 1.2em;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+} 

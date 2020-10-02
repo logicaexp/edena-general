@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head><meta charset="gb18030">
+	<title>Edena Edificio - Lógica Exp</title>
+	<script src="https://logicaexp.github.io/assets/babylon.js"></script>
+	<script src="https://logicaexp.github.io/assets/babylonjs.loaders.min.js?version=2"></script>
+	<link rel="icon" href="data:,">
+	<link rel="stylesheet" type="text/css" href="./edificio/assets/style.css?version=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+
+<div id="bloqueaInputInicio" class="overlayInicio"></div>
+    
+<div id="loadingScreen" class="loadingScreenMostrar">
+    <div id="infoCargando">
+        <svg id="logoLogicaCargando" viewBox="0 0 236.9 148.4">
+            <path d="M173.1 23.6c1.2 0 2-0.4 2.6-1.4 0.6-0.9 1.2-1.8 1.8-2.7 0.5-0.7 0.9-1.4 1.4-2.1 0.5-0.7 0.9-1.4 1.4-2.1 0.1-0.1 0.2-0.2 0.3-0.3 0.1-0.1 0.2-0.2 0.3-0.3 0.2-0.2 0.5-0.4 0.8-0.5 0.3-0.1 0.6-0.2 0.9-0.2 0.2 0 0.3 0 0.5 0 0.2 0 0.3 0 0.5 0.1 3.5 0.5 7.1 1.4 10.5 2.6 3.4 1.2 6.8 2.7 9.9 4.5 0.1 0.1 0.3 0.2 0.4 0.2 0.1 0.1 0.2 0.2 0.4 0.3 0.2 0.2 0.4 0.5 0.6 0.8 0.2 0.3 0.3 0.6 0.3 0.9 0 0.2 0.1 0.3 0.1 0.5 0 0.2 0 0.3 0 0.4 0 0.9-0.1 1.7-0.2 2.5 -0.1 0.8-0.1 1.7-0.2 2.5 -0.1 1.1-0.2 2.2-0.2 3.3 -0.1 1.2 0.2 2 1.2 2.8 1.1 0.9 2.2 1.9 3.3 2.9 0.9 0.9 1.7 1.1 2.9 0.9 1.1-0.2 2.1-0.4 3.2-0.6 0.8-0.2 1.6-0.3 2.5-0.5 0.8-0.2 1.6-0.3 2.5-0.5 0.1 0 0.3 0 0.4-0.1 0.2 0 0.3 0 0.5 0 0.3 0 0.6 0.1 0.9 0.2 0.3 0.1 0.6 0.3 0.8 0.5 0.1 0.1 0.2 0.2 0.3 0.3 0.1 0.1 0.2 0.2 0.3 0.4 2.1 2.9 4 6 5.6 9.3 1.6 3.3 2.9 6.7 3.8 10.1 0 0.2 0.1 0.3 0.1 0.4 0 0.2 0 0.3 0 0.5 0 0.3 0 0.6-0.1 0.9 -0.1 0.3-0.2 0.6-0.4 0.9 -0.1 0.1-0.2 0.3-0.3 0.4 -0.1 0.1-0.2 0.2-0.3 0.3 -0.6 0.6-1.3 1.1-1.9 1.7 -0.6 0.5-1.3 1.1-1.9 1.6 -0.8 0.7-1.6 1.4-2.5 2.1 -0.9 0.8-1.2 1.6-1.1 2.8 0.2 1.5 0.2 2.9 0.3 4.4 0 1.2 0.4 2 1.4 2.6 0.9 0.6 1.8 1.2 2.7 1.8 0.7 0.5 1.4 0.9 2.1 1.4 0.7 0.5 1.4 0.9 2.1 1.4 0.1 0.1 0.2 0.2 0.3 0.3 0.1 0.1 0.2 0.2 0.3 0.3 0.2 0.2 0.4 0.5 0.5 0.8 0.1 0.3 0.2 0.6 0.3 0.9 0 0.2 0 0.3 0 0.5 0 0.2 0 0.3 0 0.5 -0.5 3.5-1.4 7.1-2.6 10.5 -1.2 3.4-2.7 6.8-4.4 9.9 -0.1 0.1-0.1 0.3-0.2 0.4 -0.1 0.1-0.2 0.2-0.3 0.4 -0.2 0.2-0.5 0.4-0.7 0.6 -0.3 0.2-0.6 0.3-0.9 0.3 -0.1 0-0.3 0.1-0.4 0.1 -0.1 0-0.3 0-0.4 0 -0.9 0-1.7-0.1-2.5-0.2 -0.8-0.1-1.7-0.1-2.5-0.2 -1.1-0.1-2.2-0.2-3.3-0.2 -1.2-0.1-2 0.2-2.8 1.2 -0.9 1.1-1.9 2.2-2.9 3.3 -0.8 0.9-1.1 1.7-0.9 2.9 0.2 1.1 0.4 2.1 0.6 3.2 0.2 0.8 0.3 1.6 0.5 2.5 0.2 0.8 0.3 1.6 0.5 2.5 0 0.1 0.1 0.3 0.1 0.4 0 0.2 0 0.3 0 0.5 0 0.3-0.1 0.6-0.2 0.9 -0.1 0.3-0.3 0.6-0.5 0.8 -0.1 0.1-0.2 0.2-0.3 0.3 -0.1 0.1-0.2 0.2-0.4 0.3 -2.9 2.1-6 4-9.3 5.6 -3.3 1.6-6.7 2.9-10.1 3.8 -0.1 0-0.3 0.1-0.4 0.1 -0.1 0-0.3 0-0.5 0 -0.3 0-0.6 0-0.9-0.1 -0.3-0.1-0.6-0.2-0.8-0.4 -0.1-0.1-0.2-0.2-0.4-0.3 -0.1-0.1-0.2-0.2-0.3-0.3 -0.6-0.6-1.1-1.3-1.6-1.9 -0.5-0.6-1.1-1.3-1.6-1.9 -0.7-0.8-1.4-1.6-2.1-2.5 -0.8-0.9-1.6-1.2-2.8-1.1 -1.5 0.2-2.9 0.2-4.4 0.3 -1.2 0-2 0.4-2.6 1.4 -0.6 0.9-1.2 1.8-1.8 2.7 -0.5 0.7-0.9 1.4-1.4 2.1 -0.5 0.7-0.9 1.4-1.4 2.1 -0.1 0.1-0.2 0.2-0.2 0.3 -0.1 0.1-0.2 0.2-0.3 0.3 -0.2 0.2-0.5 0.4-0.8 0.5 -0.3 0.1-0.6 0.2-0.9 0.3 -0.1 0-0.3 0-0.5 0 -0.1 0-0.3 0-0.4 0 -3.5-0.5-7.1-1.4-10.5-2.6 -3.4-1.2-6.7-2.7-9.9-4.4 -0.1-0.1-0.3-0.1-0.4-0.2 -0.1-0.1-0.2-0.2-0.3-0.3 -0.2-0.2-0.4-0.5-0.6-0.7 -0.1-0.3-0.3-0.6-0.3-0.9 0-0.1 0-0.3-0.1-0.4 0-0.1 0-0.3 0-0.4 0.1-0.9 0.1-1.7 0.2-2.5 0.1-0.8 0.1-1.7 0.2-2.5 0.1-1.1 0.2-2.2 0.2-3.3 0.1-1.2-0.2-2-1.2-2.8 -1.1-0.9-2.2-1.9-3.2-2.9 -0.9-0.9-1.7-1.1-3-0.8 -1 0.2-2.1 0.5-3.1 0.7 -0.8 0.2-1.6 0.4-2.4 0.6 -0.8 0.2-1.6 0.4-2.5 0.6 -0.1 0-0.3 0.1-0.4 0.1 -0.1 0-0.3 0-0.5 0 -0.3 0-0.6-0.1-0.9-0.2 -0.3-0.1-0.6-0.3-0.8-0.4 -0.1-0.1-0.2-0.2-0.3-0.3 -0.1-0.1-0.2-0.2-0.3-0.3 -1.1-1.4-2.2-2.9-3.1-4.4 -0.5-0.7-0.9-1.4-1.3-2.1 -0.4-0.7-0.9-1.4-1.3-2.1 -0.4-0.7-0.8-1.4-1.2-2.1 -0.2-0.4-0.4-0.7-0.6-1.1 -0.2-0.4-0.4-0.8-0.6-1.2 -0.2-0.4-0.4-0.8-0.6-1.2 -0.2-0.4-0.4-0.7-0.5-1.1 -0.3-0.7-0.7-1.4-1-2.1 -0.1-0.1-0.1-0.2-0.1-0.4 0-0.1-0.1-0.3-0.1-0.4 0-0.3 0-0.6 0-0.8 0.1-0.3 0.1-0.6 0.3-0.8 0.1-0.1 0.1-0.3 0.2-0.4 0.1-0.1 0.2-0.2 0.3-0.3 0.6-0.7 1.1-1.3 1.6-1.9 0.5-0.6 1-1.3 1.5-2 0.6-0.8 1.2-1.5 1.8-2.3 0.9-1.2 1-2.2 0.3-3.5 -4.1-7.7-8.2-15.3-12.3-23 -6.8-13.1-21-20.7-35.7-19.2C48.6 41.1 33.7 64 40.8 85.8c7.1 21.9 32.6 31.6 52.4 20.1 1.5-0.8 3.3-0.4 4.3 1 4.1 5.9 8.2 11.8 12.3 17.7 0.4 0.5 0.6 1.1 0.6 1.7 0.2 3 0.3 6 0.5 9 0.1 1.5-0.4 2.3-1.7 3 -7.9 4.2-15.9 6.8-24.8 7.9 -1.5 0.2-2.3-0.2-3.1-1.5 -1.5-2.3-2.9-4.6-4.4-6.9 -0.7-1-1.4-1.5-2.7-1.5 -2.7 0-5.5-0.3-8.2-0.7 -1.2-0.2-2 0.1-2.9 1 -1.8 2-3.6 4-5.5 6.1 -1 1.1-1.9 1.4-3.3 0.9 -8.6-2.6-16.1-6.4-23.2-11.9 -1.2-0.9-1.5-1.8-1.2-3.3 0.6-2.7 1.2-5.3 1.8-8 0.3-1.2 0-2-0.8-2.9 -1.9-2-3.7-4-5.3-6.3 -0.7-1-1.5-1.4-2.8-1.3 -2.7 0.1-5.4 0.3-8.2 0.4 -1.5 0.1-2.3-0.4-3-1.7C7.3 100.8 4.8 92.8 3.6 83.9c-0.2-1.5 0.2-2.3 1.5-3.1 2.3-1.5 4.6-2.9 6.9-4.4 1.1-0.7 1.5-1.4 1.5-2.7 0-2.7 0.3-5.5 0.7-8.2 0.2-1.2-0.1-2-1-2.9 -2-1.8-4-3.6-6.1-5.5 -1.1-1-1.4-1.9-0.9-3.3 2.6-8.6 6.5-16.1 11.9-23.2 0.9-1.2 1.8-1.5 3.3-1.2 2.7 0.6 5.3 1.2 8 1.8 1.2 0.3 2.1 0 3-0.8 2-1.9 4.1-3.7 6.3-5.3 1-0.7 1.4-1.5 1.3-2.8 -0.1-2.7-0.3-5.4-0.4-8.2 -0.1-1.5 0.4-2.3 1.7-3 7.9-4.2 15.9-6.8 24.8-7.9 1.5-0.2 2.4 0.2 3.2 1.5 1.5 2.3 2.9 4.6 4.4 6.9 0.7 1.1 1.4 1.5 2.7 1.5 2.8 0 5.5 0.3 8.2 0.7 1.2 0.2 2.1-0.1 2.9-1 1.8-2 3.7-4 5.5-6.1 1-1.1 1.9-1.4 3.4-0.9 8.6 2.6 16.1 6.5 23.2 11.9 1.2 0.9 1.5 1.8 1.2 3.3 -0.6 2.7-1.2 5.3-1.7 8 -0.3 1.2 0 2.1 0.8 3 1.4 1.4 2.7 2.9 3.9 4.4 0.8 1 2.1 1.4 3.4 1.1 2.5-0.7 5-1.3 7.5-2 1.5-0.4 2.4-0.1 3.3 1.1 5.4 6.4 9.2 13.3 11.8 21.3 0.5 1.4 0.2 2.4-0.9 3.4 -1.8 1.7-3.6 3.4-5.4 5.1 -1.1 1-1.3 2.6-0.6 3.9 0.2 0.4 0.5 0.9 0.7 1.3 2.7 5.1 5.4 10.3 8.2 15.4 9.9 18.6 36.9 17.9 45.7-1.3 8.8-19.2-8.2-40.1-28.8-35.4 -1.6 0.4-3.2-0.5-3.8-2.1 -2.1-6-4.2-12.1-6.3-18.1 -0.6-1.8 0.4-3.7 2.2-4.2C164.5 24.2 168.7 23.6 173.1 23.6z"/></svg>
+    Cargando
+    </div>
+</div>
+    
+<div id="fps" class="oculto">0</div>
+
+<div id="logoTopIzquierda">
+    <a href="https://www.logicaexp.com"><img src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/edenaPNGstroke1.png" class="logoEdenaImagen" alt="Logo de edena" draggable="false"></a>
+</div>
+
+<div class="dropdown">
+    <div class="dropdownDentro">
+        <div class="dropdownUno"><img id="botondropdown" class="dropdownImagen dropdownNormal dropdownOpacity0" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsdropdown.png" draggable="false"></div>
+        <div id="dropdown1" class="dropdownUno dropdownaocultar">Ver señalamientos<img id="bsVerSenalamientos" class="dropdownImagen" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bssenalamientos.png" draggable="false"></div>
+        <div id="dropdown2" class="dropdownUno dropdownaocultar">Rotación<img id="bsRotacion" class="dropdownImagen" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsrotacion.png" draggable="false"></div>
+        <div id="dropdown3" class="dropdownUno dropdownaocultar">Pantalla completa<img id="bsPantallaCompleta" class="dropdownImagen" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsfullscreen.png" draggable="false"></div>
+        <div id="dropdown4" class="dropdownUno dropdownaocultar">Ocultar botones<img id="bsOcultarBotones" class="dropdownImagen" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsverbotones.png" draggable="false"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="botonesGrandesInicio" class="botonesGrandesDos">
+    <div id="divAmenidades" class="botonesGrandesColumna los5botonesUnoFadeIn01 los5botonesUnoFadeIn02"><img id="bgAmenidades" class="botonGrandeImagenesDos activo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgamenidades.png" draggable="false"><span id="txtAmenidades" class="activo">Amenidades</span></div>
+    <div id="divDepartamentos" class="botonesGrandesColumna los5botonesUnoFadeIn01 los5botonesUnoFadeIn02"><img id="bgDepartamentos" class="botonGrandeImagenesDos activo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgdepartamentos.png" draggable="false"><span id="txtDepartamentos" class="activo">Departamentos</span></div>
+</div>
+
+<div id="botonesChicosAmenidades" class="botonesChicosBottom">
+    <img id="bsPatiocentral" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bspatiocentral.png" draggable="false">
+    <img id="bsCowork" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bscowork.png" draggable="false">
+    <img id="bsTerrazaa" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsterrazaa.png" draggable="false">
+    <img id="bsTerrazab" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsterrazab.png" draggable="false">
+</div>
+
+<div id="botonesChicosDepartamentos" class="botonesChicosBottom">
+    <img id="bsA1" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsa1.png" draggable="false">
+    <img id="bsA2" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsa2.png" draggable="false">
+    <img id="bsB1" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsb1.png" draggable="false">
+    <img id="bsB2" class="botonChicoImagenesDos noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsb2.png" draggable="false">
+</div>
+
+<div id="botonesMedianosTres" class="botonesMedianosBottom">
+    <img id="bsVolver" class="botonMedianoImagenes noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsregresar.png" draggable="false">
+    <img id="bsInformacion" class="botonMedianoImagenes noactivo botonEntrarDisabled" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsinformacion.png" draggable="false">
+    <img id="bsEntrar" class="botonMedianoImagenes noactivo highlightCaminar" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bsentrar.png" draggable="false">
+</div>
+
+<div id="textoDeSeleccionado" class="textoDeSeleccionado noactivo">Placeholder</div>
+
+<img id="bsVolver360s" class="botonRegresar360s noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgvolver.png" draggable="false">
+
+
+
+<div id="textoDeAccederDpto" class="textoDeSeleccionado noactivo">¿Ir a modelo A1?</div>
+
+<div id="botonesPalomaTache" class="botonesMedianosBottom">
+    <img id="bspaloma" class="botonMedianoImagenes noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bspaloma.png" draggable="false">
+    <img id="bstache" class="botonMedianoImagenes noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bstache.png" draggable="false">
+</div>
+
+
+
+
+
+
+<div class="botonesGrandes">
+    <div class="los5botonesDentro">
+        <div class="deLosGrandes"><img id="bgVolver" class="los5botonesImagen noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgvolver.png" draggable="false"></div>
+        <div class="deLosGrandes"><img id="bgEntrar" class="los5botonesImagen noactivo highlightCaminar" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgentrar.png" draggable="false"></div>
+    </div>
+</div>
+
+<div class="botonesGrandesCaminar">
+    <div class="los5botonesDentro">
+        <div class="deLosGrandes"><img id="bgVolverCaminar" class="los5botonesImagen noactivo" src="https://raw.githubusercontent.com/logicaexp/edenagraficos01/master/bgvolver.png" draggable="false"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footerMain">
+    <p class="footerAplicacion"><span>Aplicación por </span><a class="footerLogica" href="https://www.logicaexp.com"> Lógica</a></p>
+    <p class="footerAplicacion"><span class="footerCopyright">© 2020 - 2021</span></p>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<script type="text/javascript" charset="utf-8" src="https://logicaexp.github.io/assets/edena/edificioOb.js?version=1"></script>
+
+
+</body>
+</html>
